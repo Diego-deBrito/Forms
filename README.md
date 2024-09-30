@@ -1,5 +1,7 @@
 # Gerador de Documentos em PDF
 
+Projeto desenvolvido para ser utlizado no Setor SNEALIS - Minstério do Esporte
+
 Este projeto permite a criação automática de diferentes tipos de declarações e documentos PDF com base em informações fornecidas por formulários HTML. Utilizando a biblioteca [pdfMake](http://pdfmake.org/), é possível gerar documentos customizados, como atestados e declarações, com um simples clique.
 
 ## Funcionalidades
