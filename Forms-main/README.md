@@ -1,4 +1,4 @@
-Gerador de Documentos em PDF
+# Gerador de Documentos em PDF
 Este projeto é um gerador de documentos em PDF com base em dados fornecidos por formulários HTML. Ele utiliza a biblioteca pdfMake para gerar os arquivos PDF, permitindo a criação automática de vários tipos de declarações e documentos com base nas informações inseridas pelo usuário.
 
 Funcionalidades
