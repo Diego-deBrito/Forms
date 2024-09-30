@@ -1,62 +1,65 @@
 # Gerador de Documentos em PDF
-Este projeto é um gerador de documentos em PDF com base em dados fornecidos por formulários HTML. Ele utiliza a biblioteca pdfMake para gerar os arquivos PDF, permitindo a criação automática de vários tipos de declarações e documentos com base nas informações inseridas pelo usuário.
 
-Funcionalidades
-Este projeto inclui várias funcionalidades para gerar PDFs diferentes, como:
+Este projeto permite a criação automática de diferentes tipos de declarações e documentos PDF com base em informações fornecidas por formulários HTML. Utilizando a biblioteca [pdfMake](http://pdfmake.org/), é possível gerar documentos customizados, como atestados e declarações, com um simples clique.
 
-Gerar Atestado de Capacidade Técnica
-Gerar Declaração de Não Utilização de Recursos
-Gerar Declaração de Cumprimento de Artigos de Lei
-Gerar Declaração de Ausência de Destinação de Recursos
-Gerar Termo de Compromisso para Coordenadores
-Gerar PDFs automaticamente a partir de um botão que chama todas as funções de geração de PDF
-Como o Código Funciona
-Estrutura
-O código é composto por diversas funções JavaScript, que:
+## Funcionalidades
 
-Coletam dados de campos de formulários HTML (por exemplo, nome, CPF, CNPJ, entidade, etc.).
-Montam esses dados em uma estrutura de conteúdo para a criação de um PDF usando a biblioteca pdfMake.
-Geram o PDF correspondente ao tipo de declaração solicitada.
-Oferecem a opção de gerar múltiplos PDFs em sequência.
-Principais Funções
-Função generateAtestadoPDF():
+Este projeto inclui diversas funcionalidades, como:
 
-Gera um Atestado de Capacidade Técnica com as informações fornecidas, incluindo o nome do dirigente, CPF, CNPJ, e detalhes do projeto.
-Função generateDeclaracaoNaoUtilizacaoRecursosPDF():
+<ul>
+  <li>Gerar Atestado de Capacidade Técnica</li>
+  <li>Gerar Declaração de Não Utilização de Recursos</li>
+  <li>Gerar Declaração de Cumprimento de Artigos de Lei</li>
+  <li>Gerar Declaração de Ausência de Destinação de Recursos</li>
+  <li>Gerar Termo de Compromisso para Coordenadores</li>
+  <li>Gerar múltiplos PDFs automaticamente com um botão</li>
+</ul>
 
-Gera uma Declaração de Não Utilização de Recursos, indicando que os recursos não serão usados para outros fins além do especificado.
-Função generateDeclaracaoLeiPDF():
+## Estrutura do Código
 
-Gera uma declaração específica relacionada ao cumprimento de Artigos de Lei, com base na Lei nº 13.019/2014.
-Função generateDeclaracaoAusenciaRecursosPDF():
+O código é organizado em diversas funções JavaScript que coletam informações de formulários HTML e geram PDFs usando `pdfMake`. Veja a seguir os detalhes de algumas dessas funções:
 
-Gera uma Declaração de Ausência de Destinação de Recursos, confirmando que os recursos não serão usados para despesas não permitidas.
-Função generateTermoCompromissoCoordenadorPDF():
+### Principais Funções
 
-Gera um Termo de Compromisso relacionado a um Coordenador Geral de Programa, especificando suas responsabilidades.
-Função generateAllPDFs():
+<ol>
+  <li>
+    <b>Função <code>generateAtestadoPDF()</code>:</b> Gera um Atestado de Capacidade Técnica com informações como nome do dirigente, CPF, CNPJ, entidade e detalhes da proposta.
+  </li>
+  <li>
+    <b>Função <code>generateDeclaracaoNaoUtilizacaoRecursosPDF()</code>:</b> Cria uma declaração de que os recursos não serão utilizados para fins diferentes do especificado.
+  </li>
+  <li>
+    <b>Função <code>generateDeclaracaoLeiPDF()</code>:</b> Gera uma declaração de cumprimento dos artigos da Lei nº 13.019/2014.
+  </li>
+  <li>
+    <b>Função <code>generateDeclaracaoAusenciaRecursosPDF()</code>:</b> Declara que os recursos não serão usados para despesas não permitidas.
+  </li>
+  <li>
+    <b>Função <code>generateTermoCompromissoCoordenadorPDF()</code>:</b> Gera um termo de compromisso indicando um Coordenador Geral.
+  </li>
+  <li>
+    <b>Função <code>generateAllPDFs()</code>:</b> Gera todos os PDFs de uma vez, chamando cada uma das funções separadamente.
+  </li>
+</ol>
 
-Gera todos os PDFs de uma vez, chamando as funções individualmente com intervalos de tempo.
-Formatação e Geração de PDFs
-Todas as funções de geração de PDF utilizam o pdfMake.createPdf(docDefinition).download(...) para baixar o arquivo PDF no navegador do usuário. O documento é formatado com margens, títulos centralizados e conteúdo justificado.
+### Funções Auxiliares
 
-Funções Auxiliares
-Função formatarCPF(): Formata o CPF do usuário no formato "xxx.xxx.xxx-xx".
-Função formatDate(): Retorna a data atual formatada no formato DD/MM/AAAA.
-Função mostrarCoordenador(resposta): Mostra ou oculta campos relacionados ao Coordenador Geral com base na resposta do usuário.
-Como Usar
-Inclua o código em uma página HTML com formulários que contenham os seguintes campos de entrada:
-Nome do dirigente
-CPF, RG, CNPJ, e outros dados relacionados à entidade
-Adicione um botão com o ID botaoGerarPDF, que ao ser clicado chamará a função generateAllPDFs() para gerar todos os PDFs.
-Certifique-se de que a biblioteca pdfMake está corretamente incluída no projeto, com um <script> apontando para o arquivo pdfmake.min.js e o vfs_fonts.js.
-Preencha os campos no formulário e clique no botão "Gerar PDFs".
-Dependências
-pdfMake: Biblioteca JavaScript para gerar PDFs diretamente no navegador.
+<ul>
+  <li><code>formatarCPF(campo)</code>: Formata o CPF no formato "xxx.xxx.xxx-xx".</li>
+  <li><code>formatDate()</code>: Retorna a data atual formatada como "DD/MM/AAAA".</li>
+  <li><code>mostrarCoordenador(resposta)</code>: Mostra ou oculta os campos do Coordenador Geral com base na resposta do usuário.</li>
+</ul>
 
+## Como Usar
 
+1. Inclua o código JavaScript e o HTML em sua página web.
+2. Certifique-se de que a biblioteca <a href="http://pdfmake.org/">pdfMake</a> está corretamente referenciada no seu projeto.
+3. Preencha os campos no formulário HTML e clique no botão "Gerar PDF" para baixar os documentos gerados.
+4. Use o botão para gerar múltiplos PDFs automaticamente, ou selecione individualmente qual declaração deseja gerar.
 
+### Exemplo de Formulário HTML
 
+```html
 <form>
   <label for="dirigente">Nome do Dirigente:</label>
   <input type="text" id="dirigente" name="dirigente" />
@@ -75,12 +78,3 @@ pdfMake: Biblioteca JavaScript para gerar PDFs diretamente no navegador.
 <script src="pdfmake.min.js"></script>
 <script src="vfs_fonts.js"></script>
 <script src="seu-script.js"></script>
-
-
-
-Observações
-Certifique-se de que os campos do formulário HTML tenham IDs correspondentes aos utilizados nas funções JavaScript para coletar corretamente os dados.
-O botão Gerar PDFs chama todas as funções em sequência, gerando múltiplos arquivos PDF.
-Caso algum campo obrigatório esteja vazio, as funções irão alertar o usuário antes de tentar gerar o PDF.
-Contribuições
-Sinta-se à vontade para contribuir com melhorias neste projeto, adicionando novos tipos de declarações ou otimizando o código para casos específicos.
